@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html ng-app="tmsApp">
+	<head lang="en">	
+    	<base href="/tms_app/" />
+	    <meta charset="UTF-8"/>
+	    <title>TMS APP</title>
+	    
+	    <!-- Angular Material -->
+	    <link rel="stylesheet" href="node_modules/angular-material/angular-material.min.css">
+	    
+	    <!-- Angular Material Data Table -->
+	    <link rel="stylesheet" href="node_modules/angular-material-data-table/dist/md-data-table.min.css">
+	    
+	    <!-- Angular Spinkit -->
+	    <link rel="stylesheet" href="node_modules/angular-spinkit/build/angular-spinkit.min.css">
+	    	    
+	    <!-- Material Icons -->
+	    <link rel="stylesheet" href="css/material-icons.css">
+	    
+	    <!-- Roboto Font -->
+	    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	    
+	    <!-- Custom CSS -->
+	    <link rel="stylesheet" href="css/app.css">
+	</head>
+	<body>
+		<div ng-if="authenticated" ng-include="'views/Components/NavBar.html'"></div>
+		<div layout="column" style="height: 100%;" ng-cloak>
+			<section layout="row" flex="">
+				<div ng-if="authenticated" ng-include="'views/Components/SideNav.html'"></div>
+				<div flex="">
+		             <div class="page {{ pageClass }}" ng-view></div>
+		       	</div>
+			</section>
+		</div>
+		
+		<!-- Angular Material Dependencies -->
+		<script src="node_modules/angular/angular.min.js"></script>
+		<script	src="node_modules/angular-resource/angular-resource.js"></script>
+		<script	src="node_modules/angular-animate/angular-animate.js"></script>
+		<script src="node_modules/angular-aria/angular-aria.min.js"></script>
+		<script src="node_modules/angular-route/angular-route.js"></script>
+		<script	src="node_modules/angular-material/angular-material.min.js"></script>
+		<script	src="node_modules/angular-messages/angular-messages.min.js"></script>
+		<script	src="node_modules/angular-material-data-table/dist/md-data-table.min.js"></script>
+		<script	src="node_modules/angular-http-auth/dist/http-auth-interceptor.js"></script>
+		<script	src="node_modules/angular-spinkit/build/angular-spinkit.min.js"></script>
+
+		<!-- JQuery -->
+		<script src="node_modules/jquery/dist/jquery.js"></script>
+		<script src="node_modules/jquery/dist/jquery.min.js"></script>
+		
+		<!-- Angular App Scripts -->
+		<script src="js/App.js"></script>
+		
+		<!-- Components -->
+		<script src="js/Components/NavigationController.js"></script>
+		
+		<!-- Shared -->
+		<script src="js/Shared/Directives.js"></script>		
+		<script src="js/Shared/MenuController.js"></script>
+		
+		<!-- Auth -->
+		<script src="js/Auth/LoginController.js"></script>
+		<script src="js/Auth/LogoutController.js"></script>
+		<script src="js/Auth/ForgotPasswordController.js"></script>
+		<script src="js/Auth/AuthSharedService.js"></script>
+		<script src="js/Auth/SessionService.js"></script>
+		
+		<!-- Error -->
+		<script src="js/Error/ErrorController.js"></script>
+		
+		<!-- Home -->
+		<script src="js/Home/HomeController.js"></script>
+		
+		<!-- Tokens -->
+		<script src="js/Token/TokenController.js"></script>
+		<script src="js/Token/TokenService.js"></script>
+		
+		<!-- Users -->
+		<script src="js/User/UserController.js"></script>
+		<script src="js/User/UserService.js"></script>
+		
+		<!-- User Roles -->
+		<script src="js/UserRole/UserRoleController.js"></script>
+		<script src="js/UserRole/UserRoleService.js"></script>
+		
+		<!-- Team -->
+		<script src="js/Team/TeamController.js"></script>
+		<script src="js/Team/TeamService.js"></script>
+
+		<!-- Security -->
+		<script src="js/Security/SecurityController.js"></script>
+		<script src="js/Security/SecurityService.js"></script>
+
+		<!-- Application Types -->
+		<script src="js/ApplicationType/ApplicationTypeController.js"></script>
+		<script src="js/ApplicationType/ApplicationTypeService.js"></script>
+
+		<!-- Task Statuses -->
+		<script src="js/TaskStatus/TaskStatusController.js"></script>
+		<script src="js/TaskStatus/TaskStatusService.js"></script>
+
+		<!-- Task Statuses -->
+		<script src="js/TaskType/TaskTypeController.js"></script>
+		<script src="js/TaskType/TaskTypeService.js"></script>
+
+		<!-- Task -->
+		<script src="js/Task/TaskController.js"></script>
+		<script src="js/Task/TaskService.js"></script>
+	</body>
+</html>

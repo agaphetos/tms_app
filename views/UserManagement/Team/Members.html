@@ -1,0 +1,65 @@
+<md-dialog style="width: 70%">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Manage {{team.description}} Team Members</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()">
+        <md-icon md-font-icon="material-icon">close</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <div layout="column" ng-cloak class="md-inline-form">
+    <md-dialog-content>
+    	<form ng-submit="submit()" name="form">
+			<div layout="column" flex>
+				<md-content class="md-padding autocomplete" layout="row" flex>
+					<div layout="column" class="md-padding" flex >
+						<h2 class="md-title">Employees</h2>
+						<div>
+							<md-input-container class="md-icon-float md-block">
+								<md-icon md-menu-align-target md-font-icon="material-icon">search</md-icon>
+								<input type="text" id="search" placeholder="search" ng-model="employeeSearch"/>
+							</md-input-container>
+						</div>
+						<md-list class="fixedRows" style="overflow-y: auto; height: 288px;">
+							<md-list-item class="md-2-line contact-item selected" ng-repeat="employee in employees | filter: employeeSearch">
+								<md-icon md-font-icon="material-icon" ng-style="{'font-size': '48px'}">account_circle</md-icon>
+								<div class="md-list-item-text compact">
+									<h3>{{employee.fullName}}</h3>
+									<p>{{employee.emailAddress}}</p>
+									<md-icon md-font-icon="material-icon" class="md-secondary md-primary" aria-label="add" ng-click="add(employee)">add</md-icon>
+								</div>
+							</md-list-item>
+						</md-list>
+					</div>
+					<div layout="column" class="md-padding" flex >
+						<h2 class="md-title">Team Members</h2>
+						<div>
+							<md-input-container class="md-icon-float md-block">
+								<md-icon md-menu-align-target md-font-icon="material-icon">search</md-icon>
+								<input type="text" id="search" placeholder="search" ng-model="memberSearch"/>
+							</md-input-container>
+						</div>
+						<md-list class="fixedRows" style="overflow-y: auto; height: 288px;">
+							<md-list-item class="md-2-line contact-item selected" ng-repeat="member in members | filter: memberSearch">
+								<md-icon md-font-icon="material-icon" ng-style="{'font-size': '48px'}">account_circle</md-icon>
+								<div class="md-list-item-text compact">
+									<h3>{{member.fullName}}</h3>
+									<p>{{member.emailAddress}}</p>
+									<md-icon md-font-icon="material-icon" class="md-secondary md-warn" aria-label="remove" ng-click="remove(member)">close</md-icon>
+								</div>
+							</md-list-item>
+						</md-list>
+					</div>
+				</md-content>
+			</div>
+		    <md-dialog-actions layout="row">
+		      <span flex></span>
+		      <md-button ng-click="answer('submit')" class="md-primary" type="submit">Submit</md-button>
+		      <md-button ng-click="answer('reset')" >Clear</md-button>
+		      <md-button ng-click="cancel()" class="md-warn">Cancel</md-button>
+		   	</md-dialog-actions>
+	   	</form>
+   	</md-dialog-content>
+  </div>
+</md-dialog>

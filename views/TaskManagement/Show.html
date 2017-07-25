@@ -1,0 +1,101 @@
+<div class="md-padding" layout="column" flex>
+	<md-content>
+	  <md-grid-list
+	        md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6"
+	        md-row-height-gt-md="1:1" md-row-height="2:2"
+	        md-gutter="12px" md-gutter-gt-sm="8px">
+	    <md-grid-tile md-whiteframe="4"
+	        md-rowspan="3" md-colspan="2" md-colspan-sm="1" md-colspan-xs="1"  layout-xs="column" class="green">
+	      <md-grid-tile-header>
+	        <h3>Completed Tasks</h3>
+	      </md-grid-tile-header>
+	      <div layout="column" flex layout-fill style="padding-top: 48px;">
+	        <md-content class="green">
+	          <md-card ng-repeat="task in filtered = tasks | filter: {status:{'statusId':1,'description':'Completed'}}">
+	            <md-card-title>
+	              <md-card-title-text>
+	                <span class="md-headline">{{ task.taskId }}</span>
+	                <span class="md-subhead">{{ task.createdDate | date:'MM/dd/yyyy' }}</span>
+	              </md-card-title-text>
+	            </md-card-title>
+	            <md-card-content>
+	            	<p class="md-caption">
+	            		{{ task.taskType.description }} <br />
+	            		{{ task.description }}
+            		</p>
+	            </md-card-content>
+	          </md-card>
+	        </md-content>
+	      </div>
+	    </md-grid-tile>
+	    <md-grid-tile md-whiteframe="4" class="blue"
+	        md-rowspan="3" md-colspan="2" md-colspan-sm="1" md-colspan-xs="1">
+	      <md-grid-tile-header>
+	        <h3>In Progress Tasks</h3>
+	      </md-grid-tile-header>
+	      <div layout="column" flex layout-fill style="padding-top: 48px;">
+	        <md-content class="blue">
+	          <md-card ng-repeat="task in tasks | filter: {status:{'statusId':2,'description':'In Progress'}}">
+	            <md-card-title>
+	              <md-card-title-text>
+	                <span class="md-headline">{{ task.taskId }}</span>
+	                <span class="md-subhead">{{ task.createdDate | date:'MM/dd/yyyy' }}</span>
+	              </md-card-title-text>
+	            <md-card-content layout="row" layout-align="space-between">
+	            	<p class="md-caption">
+	            		{{ task.taskType.description }} <br />
+	            		{{ task.description }}
+            		</p>
+	              <md-card-actions layout="column">
+	                <md-button class="md-icon-button" ng-click="edit(task, $event)">
+	                  <md-tooltip md-direction="bottom">Edit</md-tooltip>
+	                  <md-icon md-font-icon="material-icon">edit</md-icon>
+	                </md-button>
+	                <md-button class="md-icon-button" ng-click="setCompleted(task)">
+	                  <md-tooltip md-direction="bottom">Move To "Completed"</md-tooltip>
+	                  <md-icon md-font-icon="material-icon">assignment_turned_in</md-icon>
+	                </md-button>
+	              </md-card-actions>
+	            </md-card-title>
+	            </md-card-content>
+	          </md-card>
+	        </md-content>
+	      </div>
+	    </md-grid-tile>
+	    <md-grid-tile md-whiteframe="4" class="darkBlue"
+	        md-rowspan="3" md-colspan="2" md-colspan-sm="1" md-colspan-xs="1">
+	      <md-grid-tile-header>
+	        <h3>Upcoming Tasks</h3>
+	      </md-grid-tile-header>
+	      <div layout="column" flex layout-fill style="padding-top: 48px;">
+	        <md-content class="darkBlue">
+	          <md-card ng-repeat="task in tasks | filter: {status:{'statusId':3,'description':'Upcoming'}}">
+	            <md-card-title>
+	              <md-card-title-text>
+	                <span class="md-headline">{{ task.taskId }}</span>
+	                <span class="md-subhead">{{ task.description }}</span>
+	              </md-card-title-text>
+	              <md-card-actions layout="row">
+	                <md-button class="md-icon-button" ng-click="edit(task, $event)">
+	                  <md-tooltip md-direction="bottom">Edit</md-tooltip>
+	                  <md-icon md-font-icon="material-icon">edit</md-icon>
+	                </md-button>
+	                <md-button class="md-icon-button" ng-click="setInProgress(task)">
+	                  <md-tooltip md-direction="bottom">Move To "In Progress"</md-tooltip>
+	                  <md-icon md-font-icon="material-icon">assignment_return</md-icon>
+	                </md-button>
+	              </md-card-actions>
+	            </md-card-title>
+	          </md-card>
+	        </md-content>
+	      </div>
+	    </md-grid-tile>
+	  </md-grid-list>
+	</md-content>
+  	<div>
+		<md-button class="md-fab md-primary" id="new" ng-click="create($event)">
+		    <md-tooltip md-direction="top">Add New User</md-tooltip>
+		    <md-icon md-font-icon="material-icon">add</md-icon>
+		</md-button>
+  	</div>
+</div>

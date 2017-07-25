@@ -1,0 +1,37 @@
+<div ng-controller="NavigationController">
+	<md-toolbar class="md-theme-primary" layout="row">
+	  <div layout-padding>
+	    <md-button class="md-icon-button" ng-click="toggleLeft()" hide-gt-md="">
+	      <md-icon md-font-icon="material-icon">menu</md-icon>
+	    </md-button>
+	  </div>
+	  <h1 class="md-toolbar-tools">Management System</h1>
+	  <span flex></span>
+	  <md-menu ng-cloak md-position-mode="target-right target">
+	    <md-button aria-label="User Account Settings" class="md-icon-button" ng-click="openMenu($mdMenu, $event)">
+	      <md-icon md-menu-origin md-font-icon="material-icon">account_circle</md-icon>
+	    </md-button>
+	    <md-menu-content width="3">
+	      <md-menu-item>
+	        <md-button ng-click="">
+	          <md-icon md-menu-align-target md-font-icon="material-icon">account_box</md-icon>
+	          Profile
+	        </md-button>
+	      </md-menu-item>
+	      <md-menu-item>
+	        <md-button ng-click="" href="#/ChangePassword">
+	          <md-icon md-menu-align-target md-font-icon="material-icon">security</md-icon>
+	          Change Password
+	        </md-button>
+	      </md-menu-item>
+	      <md-menu-divider></md-menu-divider>
+	      <md-menu-item>
+	        <md-button href="#/Logout">
+	          <md-icon md-menu-align-target md-font-icon="material-icon">power_settings_new</md-icon>
+	          Log Out
+	        </md-button>
+	      </md-menu-item>
+	    </md-menu-content>
+	  </md-menu>
+	</md-toolbar>
+</div>

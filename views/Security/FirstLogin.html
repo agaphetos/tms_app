@@ -1,0 +1,56 @@
+<div class="md-padding" layout="column" flex>
+	<md-content layout-xs="column" md-whiteframe="5" flex>
+		<md-toolbar class="md-table-toolbar md-primary">
+  			<h1 class="md-toolbar-tools">Security Question</h1>
+		</md-toolbar>
+		<div class="md-padding">
+      		<form name="form">
+				<md-content layout-padding flex>
+     				<div layout="row" flex>
+     					<h4 class="md-subhead">Set your Security Questions below.<br />These questions will help us verify user identity should you forget your password.</h4>
+     				</div>
+				  <div layout="row" flex>
+					<md-input-container class="md-block" flex >
+						<label>Security Question 1</label>
+						<md-select ng-model="securityAnswer1.securityQuestion" ng-model-options="{trackBy: '$value.questionId'}" required >
+							<md-option ng-value="question" ng-repeat="question in securityQuestions track by question.questionId">{{ question.description }}</md-option>
+						</md-select>
+					</md-input-container>
+					<md-input-container class="md-block" flex >
+						<label>Answer</label>
+						<input ng-model="securityAnswer1.answer" required />
+					</md-input-container>
+					<span flex></span>
+				  </div>
+				  <div layout="row" flex>
+					<md-input-container class="md-block" flex >
+						<label>Security Question 2</label>
+						<md-select ng-model="securityAnswer2.securityQuestion" ng-model-options="{trackBy: '$value.questionId'}" required >
+							<md-option ng-value="question" ng-repeat="question in securityQuestions track by question.questionId">{{ question.description }}</md-option>
+						</md-select>
+					</md-input-container>
+					<md-input-container class="md-block" flex >
+						<label>Answer</label>
+						<input ng-model="securityAnswer2.answer" required />
+					</md-input-container>
+					<span flex></span>
+				  </div>
+				</md-content>
+		      	<div ng-show="invalid" layout="row" layout-align="center">
+		    		<p class="error md-subhead"><md-icon md-menu-align-target md-font-icon="material-icon">error</md-icon> You cannot use the same Security Questions!</p>
+		    	</div>
+				
+				<md-content layout="row" flex>
+					<span flex></span>					
+		        	<p class="md-body-1" ng-show="updateSuccess" class="md-subhead">
+		        		<md-icon md-font-icon="material-icon">info</md-icon> Security Answers save successfully. Redirecting to Home.
+	        		</p>	
+					<span flex></span>
+					<md-button ng-click="update()" class="md-primary" type="submit">Submit</md-button>
+					<md-button ng-click="reset()" >Reset</md-button>
+				</md-content>
+				<md-progress-linear md-mode="indeterminate" ng-show="updateSuccess"></md-progress-linear>
+			</form>
+		</div>
+	</md-content>
+</div>

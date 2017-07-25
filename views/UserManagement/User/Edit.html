@@ -1,0 +1,74 @@
+<md-dialog style="width: 35%">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Create New User</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()">
+        <md-icon md-font-icon="material-icon">close</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <div layout="column" ng-cloak class="md-inline-form">
+    <md-dialog-content>
+      <form ng-submit="submit()" name="form">
+	      <md-content layout="row" layout-padding>
+	        <div layout="row" flex>
+	          <md-input-container class="md-block" flex>
+	            <label>Employee ID</label>
+	            <input ng-model="user.employeeId" />
+	          </md-input-container>
+	          <span flex></span>
+	          <md-input-container>
+	            <label>Create Date</label>
+	            <md-datepicker ng-model="user.createdDate" md-open-on-focus disabled></md-datepicker>
+	          </md-input-container>
+	        </div>
+	      </md-content>
+	
+	      <md-content layout-padding flex>
+	        <div layout="row" flex>
+	            <md-input-container class="md-block">
+	              <label>First Name</label>
+	              <input ng-model="user.firstName" required />
+	            </md-input-container>
+				<md-input-container class="md-block">
+	              <label>Middle Name</label>
+	              <input ng-model="user.middleName" />
+	            </md-input-container>
+				<md-input-container class="md-block">
+	              <label>Last Name</label>
+	              <input ng-model="user.lastName" required />
+	            </md-input-container>
+	        </div>
+	        <div layout="row" flex>            
+				<md-input-container class="md-block" flex >
+	              <label>Email Address</label>
+	              <input ng-model="user.emailAddress" required type="email"/>
+	            </md-input-container>
+            </div>
+            <div layout="row" flex>
+				<md-input-container class="md-block" flex >
+	              <label>Supervisor</label>
+	              <md-select ng-model="user.supervisorId" ng-model-options="{trackBy: '$value'}">
+	                <md-option ng-value="supervisor.employeeId" ng-repeat="supervisor in supervisors">{{ supervisor.fullName }}</md-option>
+	              </md-select>
+	            </md-input-container>
+	          	<span flex></span>
+	            <md-input-container class="md-block" flex >
+	              <label>User Role</label>
+	              <md-select ng-model="user.userRole" ng-model-options="{trackBy: '$value.roleId'}">
+	                <md-option ng-value="role" ng-repeat="role in userRoles">{{ role.description }}</md-option>
+	              </md-select>
+	            </md-input-container>
+	      	</div>
+	      </md-content>
+	    </md-dialog-content>
+	    <md-dialog-actions layout="row">
+	      <span flex></span>
+	      <md-button ng-click="answer('submit')" class="md-primary" type="submit">Submit</md-button>
+	      <md-button ng-click="answer('reset')" >Clear</md-button>
+	      <md-button ng-click="cancel()" class="md-warn">Cancel</md-button>
+      </form>
+    </md-dialog-actions>
+  </div>
+</md-dialog>

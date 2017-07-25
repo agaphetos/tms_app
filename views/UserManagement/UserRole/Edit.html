@@ -1,0 +1,53 @@
+<md-dialog style="width: 35%">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Create New User Role</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()">
+        <md-icon md-font-icon="material-icon">close</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <div layout="column" ng-cloak class="md-inline-form">
+    <md-dialog-content>    
+      <form ng-submit="submit()" name="form">
+	      <md-content layout="row" layout-padding>
+	        <div layout="row" flex>
+	          <span flex></span>
+	          <span flex></span>
+	          <span flex></span>
+	          <md-input-container class="md-block" flex>
+	            <label>Role ID</label>
+	            <input ng-model="userRole.roleId" disabled />
+	          </md-input-container>
+	        </div>
+	      </md-content>
+	
+	      <md-content layout-padding flex>
+	        <div layout="row" flex>
+	            <md-input-container class="md-block" flex>
+	              <label>Description</label>
+	              <input ng-model="userRole.description" required />
+	            </md-input-container>
+	        </div>
+	      </md-content>
+	      <md-content layout-padding flex>
+	        <div layout="row" flex>
+	          	<span flex></span>
+				<md-checkbox ng-model="userRole.isSupervisor" 
+	              ng-true-value="1"
+	              ng-false-value="0">
+					is Supervisor?
+				</md-checkbox>
+	        </div>
+	      </md-content>
+	    </md-dialog-content>
+	    <md-dialog-actions layout="row">
+	      <span flex></span>
+	      <md-button ng-click="answer('submit')" class="md-primary" type="submit">Submit</md-button>
+	      <md-button ng-click="answer('reset')" >Clear</md-button>
+	      <md-button ng-click="cancel()" class="md-warn">Cancel</md-button>
+      </form>
+    </md-dialog-actions>
+  </div>
+</md-dialog>

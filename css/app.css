@@ -1,0 +1,126 @@
+/* Custom CSS */
+  body {
+  	font-family: 'Roboto', sans-serif;
+  }
+    
+  div.box {
+    max-width:  90%;
+    width: 600px;
+    height: 500px;
+    margin: 5% auto;
+  }
+
+  .page {
+    position: inherit;
+    width: 98%;
+  }
+
+  #new, #clear {
+    bottom: 25px;
+    right: 20px;
+    position: fixed;
+  }
+  
+  .error {
+  	color: red;
+  }
+
+  .ng-enter {
+    z-index: 1;
+  }
+
+  .green {
+    background: #b9f6ca;
+  }
+
+  .blue {
+    background: #84ffff;
+  }
+
+  .darkBlue {
+    background: #80d8ff;
+  }
+
+  .deepBlue {
+    background: #448aff;
+  }
+
+ .home.ng-enter {
+   -webkit-animation:slideInRight 0.5s both ease-in;
+   -moz-animation:slideInRight 0.5s both ease-in;
+   animation:slideInRight 0.5s both ease-in;
+ }
+
+ .menu.ng-enter {
+   -webkit-animation:slideInRight 0.5s both ease-in;
+   -moz-animation:slideInRight 0.5s both ease-in;
+   animation:slideInRight 0.5s both ease-in;
+ }
+ 
+ .security.ng-enter {
+   -webkit-animation:slideInRight 0.5s both ease-in;
+   -moz-animation:slideInRight 0.5s both ease-in;
+   animation:slideInRight 0.5s both ease-in;
+ }
+ 
+ .users.ng-enter {
+   -webkit-animation:slideInRight 0.5s both ease-in;
+   -moz-animation:slideInRight 0.5s both ease-in;
+   animation:slideInRight 0.5s both ease-in;
+ }
+ 
+ .userRoles.ng-enter {
+   -webkit-animation:slideInRight 0.5s both ease-in;
+   -moz-animation:slideInRight 0.5s both ease-in;
+   animation:slideInRight 0.5s both ease-in;
+ }
+ 
+ .teams.ng-enter {
+   -webkit-animation:slideInRight 0.5s both ease-in;
+   -moz-animation:slideInRight 0.5s both ease-in;
+   animation:slideInRight 0.5s both ease-in;
+ }
+ 
+ .applicationTypes.ng-enter {
+  -webkit-animation:slideInRight 0.5s both ease-in;
+  -moz-animation:slideInRight 0.5s both ease-in;
+  animation:slideInRight 0.5s both ease-in;
+ }
+ 
+ .taskStatus.ng-enter {
+  -webkit-animation:slideInRight 0.5s both ease-in;
+  -moz-animation:slideInRight 0.5s both ease-in;
+  animation:slideInRight 0.5s both ease-in;
+ }
+ 
+ .taskTypes.ng-enter {
+  -webkit-animation:slideInRight 0.5s both ease-in;
+  -moz-animation:slideInRight 0.5s both ease-in;
+  animation:slideInRight 0.5s both ease-in;
+ }
+
+ .tasks.ng-enter {
+  -webkit-animation:slideInRight 0.5s both ease-in;
+  -moz-animation:slideInRight 0.5s both ease-in;
+  animation:slideInRight 0.5s both ease-in;
+ }
+ 
+ .error.ng-enter {
+  -webkit-animation:slideInRight 0.5s both ease-in;
+  -moz-animation:slideInRight 0.5s both ease-in;
+  animation:slideInRight 0.5s both ease-in;
+ }
+
+ /* slide in from the right */
+ @keyframes slideInRight {
+ 	from 	{ transform:translateX(100%); }
+ 	to 		{ transform: translateX(0); }
+ }
+ @-moz-keyframes slideInRight {
+ 	from 	{ -moz-transform:translateX(100%); }
+ 	to 		{ -moz-transform: translateX(0); }
+ }
+ @-webkit-keyframes slideInRight {
+ 	from 	{ -webkit-transform:translateX(100%); }
+ 	to 		{ -webkit-transform: translateX(0); }
+ }

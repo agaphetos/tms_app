@@ -1,0 +1,49 @@
+<div class="md-padding" layout="column" flex>
+	<md-content layout-xs="column" md-whiteframe="5" flex>
+		<md-toolbar class="md-table-toolbar md-primary">
+  			<h1 class="md-toolbar-tools">User Maintenance</h1>
+		</md-toolbar>
+		<md-table-container>
+		<div  class="md-padding">
+			<md-input-container class="md-icon-float md-block">
+				<md-icon md-menu-align-target md-font-icon="material-icon">search</md-icon>
+				<input type="text" id="search" placeholder="search" ng-model="search"/>
+			</md-input-container>
+		</div>
+		  <table md-table>
+		    <thead md-head md-order="pagination.order">
+		      <tr md-row>
+		        <th md-column md-order-by="employeeId" ><span>Employee ID</span></th>
+		        <th md-column md-order-by="fullName"><span>Employee Name</span></th>
+		        <th md-column md-order-by="emailAddress"><span>Email Address</span></th>
+		        <th md-column md-order-by="createdDate"><span>Created Date</span></th>
+		        <th md-column md-order-by="modifiedDate"><span>Modified Date</span></th>
+		        <th md-column md-order-by="userRole.description"><span>Role</span></th>
+		      </tr>
+		    </thead>
+		    <tbody md-body>
+		      <tr md-row ng-repeat="user in filtered = users | filter: search | orderBy: pagination.order | limitTo: pagination.limit : (pagination.pageNo -1) * pagination.limit">
+		        <td md-cell>{{user.employeeId}}</td>
+		        <td md-cell>{{user.fullName}}</td>
+		        <td md-cell>{{user.emailAddress}}</td>
+		        <td md-cell>{{user.createdDate | date:'MM/dd/yyyy'}}</td>
+		        <td md-cell>{{user.modifiedDate | date:'MM/dd/yyyy'}}</td>
+		        <td md-cell>{{user.userRole.description}}</td>
+		        <td md-cell>
+					<md-button class="md-icon-button md-primary" ng-click="edit(user, $event)"><md-icon md-menu-align-target md-font-icon="material-icon">edit</md-icon></md-button>
+		        	<md-button class="md-icon-button md-accent" ng-click="remove(user.employeeId)"><md-icon md-menu-align-target md-font-icon="material-icon">delete</md-icon></md-button>
+	        	</td>
+		      </tr>
+		    </tbody>
+		  </table>
+		</md-table-container>
+		
+		<md-table-pagination md-limit="pagination.limit" md-limit-options="pagination.options" md-page="pagination.pageNo" md-total="{{pagination.itemCount}}" md-page-select md-boundary-links></md-table-pagination>
+	</md-content>
+  	<div>
+		<md-button class="md-fab md-primary" id="new" ng-click="create($event)">
+		    <md-tooltip md-direction="top">Add New User</md-tooltip>
+		    <md-icon md-font-icon="material-icon">add</md-icon>
+		</md-button>
+  	</div>
+</div>

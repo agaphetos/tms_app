@@ -1,0 +1,54 @@
+<md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4" style="height: 110%;">
+  <md-toolbar class="md-theme-indigo">
+    <h1 class="md-toolbar-tools">Menu</h1>
+  </md-toolbar>
+  <md-content layout-padding="">
+    <md-list flex="">
+      <md-list-item class="md-2-line" ng-click="toggleLeft()" href="#/">
+        <md-icon md-font-icon="material-icon">dashboard</md-icon>
+        <div class="md-list-item-text" layout="column">Dashboard</div>
+      	<md-divider ></md-divider>
+      </md-list-item>
+      <md-list-item class="md-3-line" access="Administrator,Manager,Supervisor" ng-click="toggleLeft()" href="#/UserManagement">
+        <md-icon md-font-icon="material-icon">group</md-icon>
+        <div class="md-list-item-text" layout="column">
+          <h3>User Management</h3>
+          <p>Manage users, teams and roles.</p>
+        </div>
+      	<md-divider ></md-divider>
+      </md-list-item>
+      <md-list-item class="md-3-line" access="Administrator,Manager,Supervisor" ng-click="toggleLeft()" href="#/TaskMaintenance">
+        <md-icon md-font-icon="material-icon">build</md-icon>
+        <div class="md-list-item-text" layout="column">
+          <h3>Task Maintenance</h3>
+          <p>Manage task parameters (Application Types, Task Status, Task Type).</p>
+        </div>
+      	<md-divider ></md-divider>
+      </md-list-item>
+      <md-list-item class="md-3-line" ng-click="toggleLeft()" href="#/TaskManagement">
+        <md-icon md-font-icon="material-icon">title</md-icon>
+        <div class="md-list-item-text" layout="column">
+          <h3>Task Management</h3>
+          <p>Manage finished, ongoing and upcoming tasks.</p>
+        </div>
+      	<md-divider ></md-divider>
+      </md-list-item>
+      <md-list-item class="md-3-line" ng-click="toggleLeft()" href="#/Reports">
+        <md-icon md-font-icon="material-icon">description</md-icon>
+        <div class="md-list-item-text" layout="column">
+          <h3>Reports</h3>
+          <p>Generate reports.</p>
+        </div>
+      	<md-divider ></md-divider>
+      </md-list-item>
+      <md-list-item class="md-3-line" access="Administrator" ng-click="toggleLeft()" href="#/Tokens">
+        <md-icon md-font-icon="material-icon">cached</md-icon>
+        <div class="md-list-item-text" layout="column">
+          <h3>Tokens</h3>
+          <p>Manage tokens.</p>
+        </div>
+      	<md-divider></md-divider>
+      </md-list-item>
+    </md-list>
+  </md-content>
+</md-sidenav>

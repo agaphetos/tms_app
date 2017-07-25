@@ -1,0 +1,40 @@
+<div id="container" layout="column" layout-align="center center" layout-fill="layout-fill">
+  <div class="box" layout="column" ng-class="{'has-error is-focused' : authenticationError}">
+    <md-card>
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <h3>
+            <span>Login</span>
+          </h3>
+        </div>
+      </md-toolbar>
+      <md-card-content layout="column">
+        <br />
+        <form>
+	        <md-input-container class="md-icon-float md-block">
+	          <label>Employee ID/Email</label>
+	          <md-icon md-menu-align-target md-font-icon="material-icon">account_box</md-icon>
+	          <input id="login" ng-model="username" type="text"/>
+	        </md-input-container>
+	
+	        <md-input-container md-no-float class="md-block">
+	          <label>Password</label>
+	          <md-icon md-menu-align-target md-font-icon="material-icon">vpn_key</md-icon>
+	          <input id="password" ng-model="password" type="password"/>
+	        </md-input-container>
+	        <md-input-container md-no-float class="md-block" layout="row">
+	      		<md-checkbox ng-model="rememberMe" aria-label="Remember me?">Remember me?</md-checkbox>
+	      		<span flex></span>
+	       		<div layout="row" layout-align="end center">
+		      		<md-button class="md-warn launch" href="#/ForgotPassword">Forgot Password?</md-button>
+		        	<md-button class="md-raised md-primary" type="submit" ng-click="login()">Login</md-button>
+	        	</div>
+	      	</md-input-container>
+	      	<div ng-show="authenticationError" layout="row" layout-align="center">
+	    		<p class="error md-subhead"><md-icon md-menu-align-target md-font-icon="material-icon">error</md-icon> Username/Password doesn't match!</p>
+	    	</div>
+      	</form>
+      </md-card-content>
+    </md-card>
+  </div>
+</div>

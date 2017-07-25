@@ -1,0 +1,113 @@
+<md-dialog style="width: 40%">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Create New Task</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()">
+        <md-icon md-font-icon="material-icon">close</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <div layout="column" ng-cloak class="md-inline-form">
+      <form ng-submit="submit()" name="form">
+    <md-dialog-content>
+	      <md-content layout="row" layout-padding>
+	        <div layout="row" flex>
+	          <md-input-container class="md-block" flex>
+	            <label>Task ID</label>
+	            <input ng-model="task.taskId" disabled />
+	          </md-input-container>
+	          <span flex></span>
+	          <md-input-container>
+	            <label>Create Date</label>
+	            <md-datepicker ng-model="task.createdDate" md-open-on-focus disabled></md-datepicker>
+	          </md-input-container>
+	        </div>
+	      </md-content>
+			<md-content layout-padding flex>
+	        	<div layout="row" flex>
+		            <md-input-container class="md-block" flex >
+		              <label>Description</label>
+		              <textarea ng-model="task.description" md-maxlength="150" rows="2" md-select-on-focus></textarea>
+		            </md-input-container>
+	            </div>
+	        	<div layout="row" flex>
+		        	<md-input-container class="md-block" flex >
+		              <label>Task Type</label>
+		              <md-select ng-model="task.taskType" ng-model-options="{trackBy: '$value.taskTypeId'}" required >
+		                <md-option ng-value="taskType" ng-repeat="taskType in taskTypes track by taskType.taskTypeId">{{ taskType.description }}</md-option>
+		              </md-select>
+		            </md-input-container>
+	            </div>
+	            <div ng-if="task.taskType.description == 'Knowledge Transfer' || task.taskType.description == 'Transition Progress'">
+		        	<div layout="row" flex>
+			        	<md-input-container class="md-block" flex >
+			              <label>Application Type</label>
+			              <md-select ng-model="task.applicationType" ng-model-options="{trackBy: '$value.applicationTypeId'}">
+			                <md-option ng-value="applicationType" ng-repeat="applicationType in applicationTypes track by applicationType.applicationTypeId">{{ applicationType.applicationName }}</md-option>
+			              </md-select>
+			            </md-input-container>
+		            </div>
+		            <div layout="row" flex>
+		              <h4 class="md-subhead">Planned Dates</h4>       
+			          <span flex></span>
+			          <md-input-container>
+			            <label>Start Date</label>
+			            <md-datepicker ng-model="task.taskAddtlDetail.plannedStartDate" md-open-on-focus></md-datepicker>
+			          </md-input-container>
+			          <md-input-container>
+			            <label>End Date</label>
+			            <md-datepicker ng-model="task.taskAddtlDetail.plannedEndDate" md-open-on-focus></md-datepicker>
+			          </md-input-container>
+	            	</div>
+            	</div>
+
+	            <div ng-if="task.taskType.description == 'Transition Progress'" layout-padding>
+	              <md-input-container class="md-block">
+	                <label>Assessment Method</label>
+	                <textarea ng-model="taskType.taskAddtlDetail.assessmenthMethod" md-maxlength="150" md-select-on-focus></textarea>
+	              </md-input-container>
+	              <md-input-container class="md-block">
+	                <label>Assessment Result</label>
+	                <textarea ng-model="taskType.taskAddtlDetail.assessmenthResult" md-maxlength="150" md-select-on-focus></textarea>
+	              </md-input-container>
+	            </div>
+	            
+		        <div layout="row" flex ng-if="task.taskType.description == 'Request'">
+		          <md-input-container class="md-block" flex>
+		            <label>External Request ID (e.g. Remedy Incident ID, CR, PSR, SPR, etc.)</label>
+		            <input ng-model="task.externalRequestId" />
+		          </md-input-container>
+		        </div>
+
+		        <div layout="row" flex>
+		            <md-input-container class="md-block" flex >
+		              <label>Remarks</label>
+		              <textarea ng-model="task.remarks" md-maxlength="150" rows="2" md-select-on-focus></textarea>
+		            </md-input-container>
+	            </div>
+	            
+	            <div layout="row" flex>
+		        	<md-input-container flex >
+		              <label>Status</label>
+		              <md-select ng-model="task.status" ng-model-options="{trackBy: '$value.statusId'}" required >
+		                <md-option ng-value="taskStatus" ng-repeat="taskStatus in taskStatuses track by taskStatus.statusId">{{ taskStatus.description }}</md-option>
+		              </md-select>
+		            </md-input-container>
+		            <span ng-if="task.status.description == 'Completed'" flex></span>
+		            <md-input-container ng-if="task.status.description == 'Completed'" flex >
+		              <label>Created Date</label>
+		              <md-datepicker ng-model="task.completedDate" md-open-on-focus></md-datepicker>
+		            </md-input-container>
+		        </div>
+	        </md-content>
+    </md-dialog-content>
+	    <md-dialog-actions layout="row">
+	      <span flex></span>
+	      <md-button ng-click="answer('submit')" class="md-primary" type="submit">Submit</md-button>
+	      <md-button ng-click="answer('reset')" >Clear</md-button>
+	      <md-button ng-click="cancel()" class="md-warn">Cancel</md-button>
+	      </md-dialog-actions>
+     </form>
+  </div>
+</md-dialog>
